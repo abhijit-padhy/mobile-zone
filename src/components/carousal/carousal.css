@@ -1,0 +1,8 @@
+.carousal img {
+  height: 150px;
+  width: 150px;
+}
+
+.carousal img:hover {
+  transform: scale(1.5,1.5);
+}

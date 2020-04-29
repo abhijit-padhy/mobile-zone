@@ -1,0 +1,12 @@
+.product .carousal {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  height: 350px;
+  justify-content: center;
+}
+
+.product .name {
+  text-transform: capitalize;
+  padding-bottom: .5rem;
+}

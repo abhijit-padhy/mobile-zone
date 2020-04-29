@@ -1,0 +1,22 @@
+[
+  {
+    "name": "iphone",
+    "price": 1234,
+    "images": ["/mobile-zone/assets/products/img1.png", "/mobile-zone/assets/products/img2.png", "/mobile-zone/assets/products/img3.png", "/mobile-zone/assets/products/img4.png", "/mobile-zone/assets/products/img5.png"]
+  },
+  {
+    "name": "mi",
+    "price": 13245,
+    "images": ["/mobile-zone/assets/products/img1.png", "/mobile-zone/assets/products/img2.png", "/mobile-zone/assets/products/img3.png", "/mobile-zone/assets/products/img4.png", "/mobile-zone/assets/products/img5.png"]
+  },
+  {
+    "name": "samsung",
+    "price": 7345,
+    "images": ["/mobile-zone/assets/products/img1.png", "/mobile-zone/assets/products/img2.png", "/mobile-zone/assets/products/img3.png", "/mobile-zone/assets/products/img4.png", "/mobile-zone/assets/products/img5.png"]
+  },
+  {
+    "name": "nokia",
+    "price": 85764,
+    "images": ["/mobile-zone/assets/products/img1.png", "/mobile-zone/assets/products/img2.png", "/mobile-zone/assets/products/img3.png", "/mobile-zone/assets/products/img4.png", "/mobile-zone/assets/products/img5.png"]
+  }
+]
