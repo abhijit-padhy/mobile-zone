@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d56bd47647237ecf0aea266125a5f04e",
+    "revision": "749abcbe99182c95fefc6f5e4f89b0e0",
     "url": "/mobile-zone/index.html"
   },
   {
-    "revision": "9bf27978a85acf0bba36",
-    "url": "/mobile-zone/static/css/main.ab06f525.chunk.css"
+    "revision": "ab3752bcef9f7285343d",
+    "url": "/mobile-zone/static/css/main.ee76fff3.chunk.css"
   },
   {
-    "revision": "4ef8c7c29e2a038c4bba",
-    "url": "/mobile-zone/static/js/2.217cc359.chunk.js"
+    "revision": "581cf4eeed0c44cfa7aa",
+    "url": "/mobile-zone/static/js/2.4fcb2827.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/mobile-zone/static/js/2.217cc359.chunk.js.LICENSE.txt"
+    "url": "/mobile-zone/static/js/2.4fcb2827.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9bf27978a85acf0bba36",
-    "url": "/mobile-zone/static/js/main.a28d05d0.chunk.js"
+    "revision": "ab3752bcef9f7285343d",
+    "url": "/mobile-zone/static/js/main.745c7f74.chunk.js"
   },
   {
     "revision": "5f0d9c83a1615a25b80f",
