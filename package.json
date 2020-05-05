@@ -1,13 +1,14 @@
 {
   "name": "mobilezone",
   "description": "An assignment by AegonLife",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "private": true,
   "homepage": "http://abhijit-padhy.github.io/mobile-zone/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "deck-of-cards": "^0.1.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",

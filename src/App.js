@@ -9,20 +9,40 @@ import './App.css';
 */
 import Products from 'components/products/Products';
 import Blackjack from 'components/blackjack/Blackjack';
+import ListMaking from 'components/listMaking/ListMaking';
 
 function App() {
+  const routes = [
+    {
+      name: "Blackjack",
+      path: "/blackjack",
+      show: true
+    },
+    {
+      name: "Products",
+      path: "/products",
+      show: true
+    },
+    {
+      name: "List Making",
+      path: "/listMaking",
+      show: true
+    },
+  ];
+  
   return (
     <div className="App">
       <Router>
         <header>
           <h1>Mobile Zone</h1>
           <ul>
-            <li>
-              <Link className="App-link" to="/blackjack">Blackjack</Link>
-            </li>
-            <li>
-              <Link className="App-link" to="/products">Products</Link>
-            </li>
+            {
+              routes.map(el => el.show && (
+                <li>
+                  <Link className="App-link" to={el.path}>{el.name}</Link>
+                </li>
+              ))
+            }
           </ul>
           <hr />
         </header>
@@ -36,6 +56,9 @@ function App() {
             </Route>
             <Route path="/blackjack">
               <Blackjack />
+            </Route>
+            <Route path="/listMaking">
+              <ListMaking />
             </Route>
           </Switch>
         </main>

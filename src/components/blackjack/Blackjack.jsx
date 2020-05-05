@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Deck, CardTypes, getCard } from "./Blackjack.helper";
 
 /**
  * Problem : Create a react-app blackjack game, ensuring the following 
@@ -23,7 +24,14 @@ game over, whoever is highest below 22 points wins
 export default () => {
   const [playerPoints, setPlayerPoints] = useState(0);
   const [dealerPoints, setDealerPoints] = useState(0);
-  const [isDealerWon, setIsDealerWon] = useState(undefined);
+  const [playerCards, setPlayerCards] = useState({
+    player: [],
+    dealer: []
+  });
+  const [message, setMessage] = useState({
+    show: false,
+    text: "",
+  })
 
   /**
    * Used to generate and calculate total points based on given current points
@@ -32,16 +40,29 @@ export default () => {
    */
   function calculatePoints(currentPoint=0) {
     let _random = random1to13();
-    if (_random === 1 && currentPoint <=6) {
-      return currentPoint + 11;
+    let value = Deck[_random].value;
+    if (_random === 1) {
+      return {
+        totalPoints: currentPoint + 11 > 21 ? currentPoint + 1 : currentPoint + 11,
+        currentIndex: _random
+      };
     }
-    return currentPoint + _random;
+    return {
+      totalPoints: currentPoint + value,
+      currentIndex: _random
+    };
   }
 
   // Used to draw card for player
   function onHit() {
     if (playerPoints<=17) {
-      setPlayerPoints(calculatePoints(playerPoints))
+      let pointsResponse = calculatePoints(playerPoints)
+      setPlayerPoints(pointsResponse["totalPoints"]);
+      let _cardList = JSON.parse(JSON.stringify(playerCards["player"]));
+      let cardPath = "";
+      cardPath = getCard(Deck[pointsResponse.currentIndex].name, CardTypes[Math.floor(Math.random()*4)]);
+      _cardList.push(cardPath);
+      setPlayerCards({...playerCards, "player": [..._cardList]});
     }    
   }
 
@@ -53,11 +74,17 @@ export default () => {
       document.getElementsByTagName('button')[key].setAttribute('disabled',true)
     });
     let point = 0;
+    let _cardList = [];
     while (point<=17) {
-      point = calculatePoints(point);
+      let pointsResponse = calculatePoints(point);
+      point = pointsResponse["totalPoints"];
+      let cardPath = "";
+      cardPath = getCard(Deck[pointsResponse.currentIndex].name, CardTypes[Math.floor(Math.random()*4)]);
+      _cardList.push(cardPath);
     }
     setDealerPoints(point);
-    setIsDealerWon(getWinner(playerPoints, point));
+    setPlayerCards({...playerCards, "dealer": [..._cardList]});
+    getWinner(playerPoints, point);
   }
 
   /**
@@ -68,36 +95,64 @@ export default () => {
   function getWinner(playerPoints=0, dealerPoints=0) {
     let isPlayerValid = playerPoints<=21;
     let isDealerValid = dealerPoints<=21;
-    let winner = true;
+    let _msg = "";
     if (isPlayerValid && isDealerValid) {
-      winner = dealerPoints >= playerPoints;
+      _msg = dealerPoints === playerPoints ? "It's a tie"
+        : (dealerPoints > playerPoints ? "Winner is DEALER"
+          : "Winner is PLAYER")
     } else if (isPlayerValid) {
-      winner = false;
+      _msg = "Winner is PLAYER";
+    } else {
+      _msg = "Winner is DEALER";
     }
-    return winner; //dealer won if true else player won
+    setMessage({
+      show: true,
+      text: _msg + " !!",
+    })
   }
 
   return (
     <div className="blackjack" style={{maxWidth: "400px", margin: "0 auto"}}>
       <h1>Blackjack</h1>
+      {
+        message.show ?
+        <div className="message-container">
+          <div className="message">
+          <h2>{message.text}</h2>
+          </div>
+        </div> : <></>
+      }
       <div className="players">
         <div className="player">
           <div className="title">Player: {playerPoints}</div>
-          <div>
+          <div className="btn-container">
             <button onClick={onHit}>Hit</button>
             <button onClick={onStand} style={{marginLeft: "1rem"}}>Stand</button>
-            <button onClick={onStand} style={{marginLeft: "1rem"}} onClick={() => window.location.reload()}>Reload</button>
+            <button onClick={() => window.location.reload()} style={{marginLeft: "1rem"}}>Reload</button>
           </div>
         </div>
+        {
+          playerCards.player.length ?
+          <div className="cards">
+            {
+              playerCards.player.map((card, id) => 
+                <img key={id} src={card} alt="" style={{zIndex: (id), left: 10+(id*30)+'px'}} />
+              )
+            }
+          </div> : <></>
+        }
         <div className="title">Dealer: {dealerPoints}</div>
+        {
+          playerCards.dealer.length ?
+          <div className="cards">
+            {
+              playerCards.dealer.map((card, id) => 
+                <img key={id} src={card} alt="" style={{zIndex: (id), left: 10+(id*30)+'px'}} />
+              )
+            }
+          </div> : <></>
+        }
       </div>
-      {
-        isDealerWon !== undefined ?
-        <div style={{padding: "1rem"}}>
-          Winner is:&nbsp;
-          <span>{isDealerWon ? "Dealer" : "Player"}</span>
-        </div> : <></>
-      }
       <p> 
       Rules: <br />
       -  1. shuffle the deck <br />
@@ -129,6 +184,10 @@ export default () => {
           padding: 1rem;
         }
 
+        .blackjack .btn-container {
+          padding-bottom: 1rem;
+        }
+
         .blackjack button {
           padding: .35rem 1.5rem;
           border-radius: 5px;
@@ -145,12 +204,35 @@ export default () => {
           color: #949494;
           padding: 1rem;
         }
+
+        .blackjack .cards {
+          position: relative;
+          height: 180px;
+        }
+
+        .blackjack .cards img {
+          height: 140px;
+          width: 100px;
+          border: 1px solid grey;
+          padding: .25rem;
+          border-radius: 5px;
+          position: absolute;
+        }
+
+        .blackjack .message-container {
+          padding: 0 1rem;
+        }
+
+        .blackjack .message-container .message {
+          background: linear-gradient(45deg, #67dcfa, transparent);
+          border-radius: 5px;
+        }
       `}</style>
     </div>
   )
 }
 
 export const random1to13 = () => {
-  // 10 because hishest possible outcome can be 10.
-  return Math.ceil(Math.random()*10);
+  // return max 13 because highest card index is 13 which represents king.
+  return Math.floor(Math.random()*13);
 }

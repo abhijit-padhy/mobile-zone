@@ -34,7 +34,7 @@
   padding-left: .5rem;
 }
 .App ul li::before {
-  content: "/";
+  /* content: "/"; */
   color: #61dafb;
 }
 
