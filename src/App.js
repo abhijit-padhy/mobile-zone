@@ -29,16 +29,19 @@ function App() {
       show: true
     },
   ];
-  
+
   return (
     <div className="App">
       <Router>
         <header>
-          <h1>Mobile Zone</h1>
+          <h1>
+            <img src="/mobile-zone/logos/logo.png" height="48px" width="48px" alt="" />
+            <span>&nbsp;Mobile Zone</span>
+          </h1>
           <ul>
             {
-              routes.map(el => el.show && (
-                <li>
+              routes.map((el, id) => el.show && (
+                <li key={id}>
                   <Link className="App-link" to={el.path}>{el.name}</Link>
                 </li>
               ))

@@ -25,7 +25,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #070d44;
 }
 
 .App ul li {
@@ -35,7 +35,7 @@
 }
 .App ul li::before {
   /* content: "/"; */
-  color: #61dafb;
+  color: #070d44;
 }
 
 @keyframes App-logo-spin {

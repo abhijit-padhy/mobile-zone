@@ -11,7 +11,7 @@ export default () => {
       width="994px"
       height="550px"
       style={{border: "none"}}
-      src="http://abhijit-padhy.github.io/list-making/" allow="fullscreen">
+      src="https://abhijit-padhy.github.io/list-making/" allow="fullscreen">
     </iframe>
   )
 }

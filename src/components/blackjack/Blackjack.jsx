@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Deck, CardTypes, getCard } from "./Blackjack.helper";
 
 /**
@@ -32,6 +32,11 @@ export default () => {
     show: false,
     text: "",
   })
+
+  useEffect(() => {
+    // player must get a card
+    onHit();
+  }, [])
 
   /**
    * Used to generate and calculate total points based on given current points
@@ -102,8 +107,10 @@ export default () => {
           : "Winner is PLAYER")
     } else if (isPlayerValid) {
       _msg = "Winner is PLAYER";
-    } else {
+    } else if (isDealerValid) {
       _msg = "Winner is DEALER";
+    } else {
+      _msg = "It's a tie";
     }
     setMessage({
       show: true,
@@ -136,7 +143,9 @@ export default () => {
           <div className="cards">
             {
               playerCards.player.map((card, id) => 
-                <img key={id} src={card} alt="" style={{zIndex: (id), left: 10+(id*30)+'px'}} />
+                <img key={id} src={card}
+                  alt={card.split("/").pop()}
+                  style={{zIndex: (id), left: 10+(id*30)+'px'}} />
               )
             }
           </div> : <></>
@@ -147,7 +156,9 @@ export default () => {
           <div className="cards">
             {
               playerCards.dealer.map((card, id) => 
-                <img key={id} src={card} alt="" style={{zIndex: (id), left: 10+(id*30)+'px'}} />
+                <img key={id} src={card}
+                  alt={card.split("/").pop()}
+                  style={{zIndex: (id), left: 10+(id*30)+'px'}} />
               )
             }
           </div> : <></>
@@ -173,7 +184,7 @@ export default () => {
       * J,Q,K: 10 points <br />
       * A : 11/1 point (can be 11 or 1 points) <br />
       </p>
-      <style jsx>{`
+      <style jsx="true">{`
         .blackjack {
           border: 1px solid #ccc;
           border-radius: 5px;
@@ -217,6 +228,8 @@ export default () => {
           padding: .25rem;
           border-radius: 5px;
           position: absolute;
+          background: white;
+          word-break: break-all;
         }
 
         .blackjack .message-container {
@@ -233,6 +246,10 @@ export default () => {
 }
 
 export const random1to13 = () => {
+  let _random = Math.random();
+  if (_random === 0) {
+    random1to13();
+  }
   // return max 13 because highest card index is 13 which represents king.
-  return Math.floor(Math.random()*13);
+  return Math.ceil(_random*13);
 }

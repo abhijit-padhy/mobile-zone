@@ -9,3 +9,12 @@ It lists out products with details and displays product images in carousal.
 - Added playing cards in blackjack game.
 - Updated total point calculation logic
 - Added list making application in menu bar.
+
+### v0.3.1
+- SEO implementaion
+- PWA implementation
+
+#### manifest.json
+- *.ico file is must for application icon
+- maskable_icon required for different logo sizes when application shortcut
+  link has been added to mobile homescreen. https://maskable.app/editor
