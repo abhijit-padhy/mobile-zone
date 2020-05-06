@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mobile-zone/static/css/main.8a487038.chunk.css",
-    "main.js": "/mobile-zone/static/js/main.7dc4e057.chunk.js",
-    "main.js.map": "/mobile-zone/static/js/main.7dc4e057.chunk.js.map",
+    "main.js": "/mobile-zone/static/js/main.b1e08b57.chunk.js",
+    "main.js.map": "/mobile-zone/static/js/main.b1e08b57.chunk.js.map",
     "runtime-main.js": "/mobile-zone/static/js/runtime-main.d5aeec30.js",
     "runtime-main.js.map": "/mobile-zone/static/js/runtime-main.d5aeec30.js.map",
     "static/js/2.b1cdd5b0.chunk.js": "/mobile-zone/static/js/2.b1cdd5b0.chunk.js",
     "static/js/2.b1cdd5b0.chunk.js.map": "/mobile-zone/static/js/2.b1cdd5b0.chunk.js.map",
     "index.html": "/mobile-zone/index.html",
-    "precache-manifest.a9083cf43b88160ea9b50a79e9781702.js": "/mobile-zone/precache-manifest.a9083cf43b88160ea9b50a79e9781702.js",
+    "precache-manifest.a8e7a972e6c57acb00983b0f04976709.js": "/mobile-zone/precache-manifest.a8e7a972e6c57acb00983b0f04976709.js",
     "service-worker.js": "/mobile-zone/service-worker.js",
     "static/css/main.8a487038.chunk.css.map": "/mobile-zone/static/css/main.8a487038.chunk.css.map",
     "static/js/2.b1cdd5b0.chunk.js.LICENSE.txt": "/mobile-zone/static/js/2.b1cdd5b0.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.d5aeec30.js",
     "static/js/2.b1cdd5b0.chunk.js",
     "static/css/main.8a487038.chunk.css",
-    "static/js/main.7dc4e057.chunk.js"
+    "static/js/main.b1e08b57.chunk.js"
   ]
 }
