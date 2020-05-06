@@ -10,6 +10,7 @@ import './App.css';
 import Products from 'components/products/Products';
 import Blackjack from 'components/blackjack/Blackjack';
 import ListMaking from 'components/listMaking/ListMaking';
+import BillDesk from 'components/billDesk/BillDesk';
 
 function App() {
   const routes = [
@@ -26,6 +27,11 @@ function App() {
     {
       name: "List Making",
       path: "/listMaking",
+      show: true
+    },
+    {
+      name: "Bill Desk",
+      path: "/billdesk",
       show: true
     },
   ];
@@ -62,6 +68,9 @@ function App() {
             </Route>
             <Route path="/listMaking">
               <ListMaking />
+            </Route>
+            <Route path="/billdesk">
+              <BillDesk />
             </Route>
           </Switch>
         </main>

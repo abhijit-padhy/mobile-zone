@@ -2,6 +2,11 @@ import React, {useState, useEffect} from 'react'
 import Product from '../product/Product';
 import './products.css';
 
+/**
+ * This is a product listing page.
+ * It shows product details plus their images in carousal.
+ * @host Aegonlife
+ */
 function Products() {
   const [products, setProducts] = useState([]);
   useEffect(() => {

@@ -18,3 +18,7 @@ It lists out products with details and displays product images in carousal.
 - *.ico file is must for application icon
 - maskable_icon required for different logo sizes when application shortcut
   link has been added to mobile homescreen. https://maskable.app/editor
+
+### v0.4.0
+- Added Bill Desk page
+- Added Mobilezone site ownership meta tag in index.html

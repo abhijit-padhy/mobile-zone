@@ -38,6 +38,14 @@
   color: #070d44;
 }
 
+.App button, .App select {
+  cursor: pointer;
+}
+
+.App button:hover {
+  background: #f7f8f9;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

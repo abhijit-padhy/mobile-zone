@@ -1,7 +1,7 @@
 {
   "name": "mobilezone",
   "description": "An assignment by AegonLife",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "private": true,
   "homepage": "http://abhijit-padhy.github.io/mobile-zone/",
   "dependencies": {
@@ -9,6 +9,9 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "deck-of-cards": "^0.1.8",
+    "highcharts": "^8.1.0",
+    "highcharts-react-official": "^3.0.0",
+    "moment": "^2.25.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",

@@ -3,6 +3,7 @@ import React from 'react';
 /**
  * This is list making component with given stages.
  * User can create, drag and drop tasks withing the stages.
+ * @host Nobroker
  */
 export default () => {
   return (

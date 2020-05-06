@@ -20,7 +20,8 @@ game over, whoever is highest below 22 points wins
 * 2-10: 2-10 points
 * J,Q,K: 10 points
 * A : 11/1 point (can be 11 or 1 points)
- */
+* @host Securezapp
+*/
 export default () => {
   const [playerPoints, setPlayerPoints] = useState(0);
   const [dealerPoints, setDealerPoints] = useState(0);
@@ -133,9 +134,15 @@ export default () => {
         <div className="player">
           <div className="title">Player: {playerPoints}</div>
           <div className="btn-container">
-            <button onClick={onHit}>Hit</button>
-            <button onClick={onStand} style={{marginLeft: "1rem"}}>Stand</button>
-            <button onClick={() => window.location.reload()} style={{marginLeft: "1rem"}}>Reload</button>
+            <button title="Click hit to draw card."
+              onClick={onHit}
+              style={{}}>Hit</button>
+            <button title="Click stand to stop drawing card."
+              onClick={onStand}
+              style={{marginLeft: "1rem"}}>Stand</button>
+            <button title="Click reload to reset data."
+              onClick={() => window.location.reload()}
+              style={{marginLeft: "1rem"}}>Refresh</button>
           </div>
         </div>
         {
@@ -205,7 +212,7 @@ export default () => {
           font-weight: bold;
         }
 
-        .blackjack button:focus, button:hover {
+        .blackjack button:focus {
           outline: none;
         }
 
